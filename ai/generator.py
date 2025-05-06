@@ -7,7 +7,7 @@ def generate_test_case(description, base_url=BASE_URL):
     prompt = f"""
 You are a senior QA engineer.
 
-Your task is to generate **detailed Selenium test cases in Python** based on the requirement provided below. Use the given BASE URL for all tests.
+Your task is to generate **detailed Selenium Behave (BDD) test cases in Python** based on the requirement provided below. Use the given BASE URL for all tests.
 
 📌 **Mandatory Instruction**: You MUST include of:
 - Positive test cases
@@ -22,13 +22,12 @@ Base URL: {base_url}
 Requirement:
 \"\"\"{description}\"\"\"
 
-For each test case, include:
-1. 🧾 Test Case Title
-2. 🏷️ Type (Positive / Negative / Edge / Security / Usability / Performance / Compatibility)
-3. 🔄 Step-by-step Actions
-4. ✅ Expected Result
-5. 🐍 Python Selenium Test Script
 
+For each test case, include:
+1. **Test Case Title**
+2. **Type** (Positive / Negative / Edge / Out-of-the-box)
+3. **Gherkin Feature Scenario** in `.feature` file format
+4. **Step Definitions** (Python code using Selenium, with realistic waits and assertions)
 Ensure clear formatting. Separate each test case with the following divider:
 ==============================
 """
@@ -38,7 +37,7 @@ Ensure clear formatting. Separate each test case with the following divider:
         messages=[
             {
                 "role": "system",
-                "content": "You are a senior QA engineer generating clear, structured Selenium test cases in Python with full detail."
+                "content": "You are a senior QA engineer generating Behave BDD test cases with Gherkin and Python Selenium."
             },
             {"role": "user", "content": prompt}
         ],
