@@ -1,4 +1,3 @@
-Here is a README.md file for your project:
 # AI Test Case Generator
 
 This project automates the generation of detailed Selenium test cases in Python using OpenAI's GPT-4 model. It integrates with Jira to fetch issue details and generates test cases based on the issue description.
