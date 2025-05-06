@@ -71,7 +71,7 @@ This project automates the generation of detailed Selenium test cases in Python 
     BASE_URL=<your_base_url>
     ```
 
-Usage
+## Usage
 
 1. Update the issue_key in main.py with your Jira ticket ID.
 2. Run the main script:
@@ -81,7 +81,7 @@ Usage
 
 The generated test cases will be saved in the tests/generated/ directory.
 
-Example Output
+## Example Output
 Generated test cases will include:
 
 - Test case title
@@ -90,12 +90,12 @@ Generated test cases will include:
 - Expected results
 - Python Selenium test script
 
-Contributing
+## Contributing
 Contributions are welcome! Please fork the repository and submit a pull request.
 
-License
+## License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-Acknowledgments
+## Acknowledgments
 - OpenAI for the GPT-4 model.
 - Atlassian Jira for the Jira REST API.
