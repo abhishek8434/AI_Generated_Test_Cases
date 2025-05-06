@@ -9,7 +9,7 @@ You are a senior QA engineer.
 
 Your task is to generate **detailed Selenium Behave (BDD) test cases in Python** based on the requirement provided below. Use the given BASE URL for all tests.
 
-📌 **Mandatory Instruction**: You MUST include of:
+**Mandatory Instruction**: You MUST include of:
 - Positive test cases
 - Negative test cases
 - Edge test case
@@ -22,12 +22,12 @@ Base URL: {base_url}
 Requirement:
 \"\"\"{description}\"\"\"
 
-
 For each test case, include:
 1. **Test Case Title**
 2. **Type** (Positive / Negative / Edge / Out-of-the-box)
 3. **Gherkin Feature Scenario** in `.feature` file format
 4. **Step Definitions** (Python code using Selenium, with realistic waits and assertions)
+
 Ensure clear formatting. Separate each test case with the following divider:
 ==============================
 """
