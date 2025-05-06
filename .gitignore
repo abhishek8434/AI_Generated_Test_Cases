@@ -1,0 +1,12 @@
+/tests/generated
+/.env
+/myenv/
+/.venv
+/.envrc 
+/jira/__pycache__/
+/assets/__pycache__/
+/tests/__pycache__/
+/ai/__pycache__/
+/.pytest_cache
+/utils/__pycache__/
+/config/__pycache__/
