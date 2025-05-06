@@ -1,0 +1,4 @@
+openai
+requests
+selenium
+python-dotenv

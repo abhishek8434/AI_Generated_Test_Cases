@@ -1,0 +1,5 @@
+/tests/generated
+/.env
+/myenv/
+/.venv
+/.envrc 
