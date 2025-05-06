@@ -18,20 +18,20 @@ This project automates the generation of detailed Selenium test cases in Python 
 ## Project Structure
 
 
-├── .env # Environment variables 
-├── .gitignore # Git ignore file 
-├── main.py # Main script to run the application 
-├── requirements.txt # Python dependencies 
-├── ai/ 
-│ ├── generator.py # Test case generation logic using OpenAI 
-├── config/ 
-│ ├── settings.py # Configuration settings (e.g., API keys, URLs) 
-├── jira/ 
-│ ├── jira_client.py # Jira client to fetch issue details 
-├── utils/ 
-│ ├── file_handler.py # Utility to save test scripts 
-├── tests/ 
-│ ├── generated/ # Directory for generated test cases
+├── .env # Environment variables   
+├── .gitignore # Git ignore file   
+├── main.py # Main script to run the application   
+├── requirements.txt # Python dependencies   
+├── ai/   
+│ ├── generator.py # Test case generation logic using OpenAI   
+├── config/   
+│ ├── settings.py # Configuration settings (e.g., API keys, URLs)   
+├── jira/   
+│ ├── jira_client.py # Jira client to fetch issue details   
+├── utils/   
+│ ├── file_handler.py # Utility to save test scripts   
+├── tests/   
+│ ├── generated/ # Directory for generated test cases  
 
 
 
