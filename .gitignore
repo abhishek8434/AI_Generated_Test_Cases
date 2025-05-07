@@ -10,3 +10,5 @@
 /.pytest_cache
 /utils/__pycache__/
 /config/__pycache__/
+/azure_integration/__pycache__/
+/app.log
