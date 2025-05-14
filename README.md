@@ -17,7 +17,7 @@ This project automates the generation of detailed Selenium test cases in Python 
 
 ## Project Structure
 
-
+```tree
 ├── .env # Environment variables 
 ├── .gitignore # Git ignore file 
 ├── README.md # Project documentation
@@ -38,7 +38,7 @@ This project automates the generation of detailed Selenium test cases in Python 
 │   └── logger.py # Logging utilities
 ├── tests/ 
 │   └── generated/ # Directory for generated test cases
-
+```
 
 
 ## Prerequisites
@@ -98,9 +98,6 @@ Generated test cases will include:
 
 ## Contributing
 Contributions are welcome! Please fork the repository and submit a pull request.
-
-## License
-This project is licensed under the MIT License. See the LICENSE file for details.
 
 ## Acknowledgments
 - OpenAI for the GPT-4 model.
