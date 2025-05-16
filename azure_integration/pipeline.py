@@ -4,48 +4,69 @@ from config.settings import OPENAI_API_KEY, BASE_URL
 client = OpenAI(api_key=OPENAI_API_KEY)
 
 class AzurePipeline:
-    
+    def generate_test_case(self, description, base_url=None):
+        category_prompts = {
+            "functional": """
+            Generate Functional Test Cases including:
+            - Positive test cases (happy path)
+            - Negative test cases
+            - Edge Cases test cases
+            - Data validation cases
+            """,
+            "non_functional": """
+            Generate Non-Functional Test Cases including:
+            - Usability test cases
+            - Compatibility test cases
+            - Responsiveness test cases
+            - UI test cases
+            - UX test cases
+            """
+        }
 
-     def generate_test_case(self, description, base_url=None):
+        all_test_cases = []
+        
+        for category, category_prompt in category_prompts.items():
             prompt = f"""
-        You are a senior QA engineer.
+            You are a senior QA engineer.
+            
+            Task Description: {description}
+            
+            {category_prompt}
+            
+            For each test case, use EXACTLY this format:
+            
+            Title: TC_MODULENAME_ID_Actual_Title
+            Scenario: [Detailed scenario description]
+            Steps to reproduce:
+            1. [Step 1]
+            2. [Step 2]
+            ...
+            Expected Result: [What should happen when test is successful]
+            Actual Result: [To be filled after test execution]
+            
+            ==============================
+            """
 
-        Your task is to generate **detailed Selenium Behave (BDD) test cases in Python** based on the requirement provided below. Use the given BASE URL for all tests.
+            try:
+                response = client.chat.completions.create(
+                    model="gpt-4",
+                    messages=[
+                        {
+                            "role": "system",
+                            "content": "You are a senior QA engineer generating detailed test cases."
+                        },
+                        {"role": "user", "content": prompt}
+                    ],
+                    temperature=0.3,
+                    max_tokens=2000
+                )
+                test_cases = response.choices[0].message.content.strip()
+                if test_cases:
+                    all_test_cases.append(test_cases)
+            except Exception as e:
+                print(f"❌ Error generating test cases for {category}: {e}")
 
-        **Mandatory Instruction**: You MUST include of:
-        - Positive test cases
-        - Negative test cases
-        - Edge test case
-        - Security test case
-        - Usability, Performance, or Compatibility test (if applicable)
+        if not all_test_cases:
+            return None
 
-
-        Base URL: {base_url}
-
-        Requirement:
-        \"\"\"{description}\"\"\"
-
-        For each test case, include:
-        1. **Test Case Title**
-        2. **Type** (Positive / Negative / Edge / Out-of-the-box)
-        3. **Gherkin Feature Scenario** in `.feature` file format
-        4. **Step Definitions** (Python code using Selenium, with realistic waits and assertions)
-
-        Ensure clear formatting. Separate each test case with the following divider:
-        ==============================
-        """
-
-            response = client.chat.completions.create(
-                model="gpt-4",
-                messages=[
-                    {
-                        "role": "system",
-                        "content": "You are a senior QA engineer generating Behave BDD test cases with Gherkin and Python Selenium."
-                    },
-                    {"role": "user", "content": prompt}
-                ],
-                temperature=0.3,
-                max_tokens=2000 #You can adjust based on expected response size
-            )
-
-            return response.choices[0].message.content.strip()
+        return "\n\n".join(all_test_cases)
