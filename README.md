@@ -48,6 +48,44 @@ This project automates the generation of detailed Selenium test cases in Python 
 ## Prerequisites
 
 - Python 3.10 or higher
+
+### Required Libraries
+
+- **openai**: Integration with GPT-4 API for test case generation
+- **requests**: HTTP client for Jira and Azure DevOps API integration
+- **python-dotenv**: Environment variable management
+- **beautifulsoup4**: HTML parsing for Azure work item descriptions
+- **pandas**: Excel report generation and data handling
+
+### Built-in Libraries Used
+
+- **typing**: Type hints for better code documentation
+- **logging**: Application logging and error tracking
+- **os**: Operating system interface for file and path operations
+- **base64**: Encoding for Azure DevOps authentication
+- **re**: Regular expressions for text processing
+
+### Environment Variables Required
+
+#### For OpenAI
+- `OPENAI_API_KEY`: Your OpenAI API key
+
+#### For Jira Integration
+- `JIRA_URL`: Your Jira instance URL
+- `JIRA_USER`: Jira username/email
+- `JIRA_API_TOKEN`: Jira API token
+- `JIRA_ISSUE_KEYS`: Comma-separated list of Jira issue keys (for batch processing)
+
+#### For Azure DevOps Integration
+- `AZURE_DEVOPS_URL`: Azure DevOps URL
+- `AZURE_DEVOPS_ORG`: Your organization name
+- `AZURE_DEVOPS_PROJECT`: Your project name
+- `AZURE_DEVOPS_PAT`: Personal Access Token
+- `AZURE_DEVOPS_WORKITEM_IDS`: Comma-separated list of work item IDs (for batch processing)
+- `AZURE_DEVOPS_USER_STORY_ID`: User story ID (for processing all tasks under a user story)
+
+#### General Settings
+- `BASE_URL`: Base URL for test cases
 - A virtual environment (recommended)
 - Jira account with API access (for Jira integration)
 - Azure DevOps account with API access (for Azure integration)
