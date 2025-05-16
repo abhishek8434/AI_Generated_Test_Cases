@@ -4,3 +4,4 @@ selenium
 python-dotenv
 beautifulsoup4
 pandas
+Pillow
