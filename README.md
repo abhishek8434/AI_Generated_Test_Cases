@@ -1,13 +1,14 @@
 
 # AI Test Case Generator
 
-This project automates the generation of detailed Selenium test cases in Python using OpenAI's GPT-4 model. It integrates with both Jira and Azure DevOps to fetch work item details and generates comprehensive test cases based on the item description.
+This project automates the generation of detailed Selenium test cases in Python using OpenAI's GPT-4 model. It integrates with Jira, Azure DevOps, and image-based inputs to generate comprehensive test cases.
 
 ## Features
 
 - Multi-platform integration:
   - Fetch Jira issue details using the Jira REST API
   - Fetch Azure DevOps work items using the Azure DevOps REST API
+  - Generate test cases from UI/UX images or screenshots
 - Generate detailed Selenium test cases, including:
   - Positive test cases
   - Negative test cases
@@ -27,7 +28,8 @@ This project automates the generation of detailed Selenium test cases in Python 
 ├── main.py # Main script to run the application 
 ├── requirements.txt # Python dependencies 
 ├── ai/ 
-│   └── generator.py # Test case generation logic using OpenAI 
+│   ├── generator.py # Test case generation logic using OpenAI
+│   └── image_generator.py # Image-based test case generation 
 ├── azure_integration/
 │   ├── __init__.py
 │   ├── azure_client.py # Azure DevOps integration
@@ -56,6 +58,7 @@ This project automates the generation of detailed Selenium test cases in Python 
 - **python-dotenv**: Environment variable management
 - **beautifulsoup4**: HTML parsing for Azure work item descriptions
 - **pandas**: Excel report generation and data handling
+- **Pillow**: Image processing for image-based test case generation
 
 ### Built-in Libraries Used
 
@@ -127,6 +130,10 @@ This project automates the generation of detailed Selenium test cases in Python 
     AZURE_DEVOPS_PROJECT=<your_project_name>
     AZURE_DEVOPS_PAT=<your_personal_access_token>
     AZURE_DEVOPS_WORKITEM_ID=<your_work_item_id>
+
+    # Image Generation Configuration
+    TEST_IMAGE_SOURCE=<path_to_image_file>
+    TEST_IMAGE_TITLE=<your_image_title>
 
     # Application Configuration
     BASE_URL=<your_base_url>
